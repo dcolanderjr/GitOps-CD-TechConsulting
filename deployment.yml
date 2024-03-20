@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: ci_app_deployment
+  name: ci-app-deployment
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: ci_app
+      app: ci-app
   template:
     metadata:
       labels:
-        app: ci_app
+        app: ci-app
     spec:
       containers:
-        - name: ci_app
+        - name: ci-app
           image: dcolanderjr/ci_app_pipeline:1.0.0-21
           resources:
             limits:
