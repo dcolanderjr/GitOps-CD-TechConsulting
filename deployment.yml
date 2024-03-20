@@ -6,14 +6,14 @@ spec:
   replicas: 2
   selector:
     matchLabels:
-      app: ci_app_pipeline
+      app: ci_app
   template:
     metadata:
       labels:
-        app: ci_app_pipeline
+        app: ci_app
     spec:
       containers:
-        - name: pipeline-project
+        - name: ci_app
           image: dcolanderjr/ci_app_pipeline:1.0.0-21
           resources:
             limits:
