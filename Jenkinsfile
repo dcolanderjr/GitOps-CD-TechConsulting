@@ -1,7 +1,7 @@
 pipeline {
     agent { label 'Jenkins-Agent' }
     environment { 
-            APP_NAME = 'pipeline_project_app'
+            APP_NAME = 'ci_app_pipeline'
   }
 
     stages {
@@ -13,7 +13,7 @@ pipeline {
 
         stage('Checkout from SCM') {
             steps {
-                git branch: 'main', credentialsId: 'github', url: 'https://github.com/dcolanderjr/gitops-pipeline-app'
+                git branch: 'main', credentialsId: 'GitHub', url: 'https://github.com/dcolanderjr/GitOps-CD-TechConsulting'
             }
         }
 
@@ -31,12 +31,12 @@ pipeline {
             steps {
                 sh """
                     git config --global user.name "dcolanderjr"
-                    git config --global user.email "< YOUR EMAIL >"
+                    git config --global user.email "dcolanderjr@gmail.com"
                     git add deployment.yml
                     git commit -m "Updated Deployment Manifest"
                 """
-                withCredentials([gitUsernamePassword(credentialsId: 'github', gitToolName: 'Default')]) {
-                    sh "git push https://github.com/dcolanderjr/gitops-pipeline-app main"
+                withCredentials([gitUsernamePassword(credentialsId: 'GitHub', gitToolName: 'Default')]) {
+                    sh "git push https://github.com/dcolanderjr/GitOps-CD-TechConsulting main"
                 }
             }
         }
