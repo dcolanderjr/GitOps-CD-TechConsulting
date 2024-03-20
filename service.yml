@@ -3,10 +3,10 @@ kind: Service
 metadata:
   name: ci-app-service
   labels:
-    app: ci_app
+    app: ci-app
 spec:
   selector:
-    app: ci_app
+    app: ci-app
 
   ports:
     - port: 8080
