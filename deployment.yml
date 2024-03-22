@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: ci-app
-          image: dcolanderjr/ci_app_pipeline:1.0.0-44
+          image: dcolanderjr/ci_app_pipeline:1.0.0-45
           resources:
             limits:
               memory: "256Mi"
